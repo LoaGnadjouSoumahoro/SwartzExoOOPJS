@@ -14,3 +14,44 @@ Make sure that each print is on a different line.
 Try to get this error on the screen= Fatal error: Uncaught Error: Call to undefined method Beverage::getAlcoholPercentage() in /var/www/becode/workshop/exercise2.php on line 64
 USE TYPEHINTING EVERYWHERE!
 */
+
+class Beverage{
+
+    constructor(color = "", price = 0.0, temperature = "cold"){
+     this.color = color;
+     this.price = price;
+     this.temperature = temperature;
+    }
+
+ 
+ getInfo() {
+ 
+     return `This beverage is ${this.temperature} and ${this.color}.`;
+     
+    }
+ }
+ 
+class Beer extends Beverage{
+    constructor(name ="", alcoholPercentage = 0.0, color, price, temperature,){
+    super(color, price, temperature);
+    this.name = name;
+    this.alcoholPercentage = alcoholPercentage;
+    
+    }
+
+    getAlcoholPercentage(){
+        return `The percentage of de alcool is: ${this.alcoholPercentage}.`;
+    }
+}
+
+ const duvel = new Beer ("Duvel", 8.5, "blond", 3.5, "cold");
+
+ // Imprimer la méthode getAlcoholPercentage directement
+console.log(duvel.getAlcoholPercentage());
+
+// Imprimer en accédant à la propriété alcoholPercentage manuellement
+console.log(`The percentage of alcool is: ${duvel.alcoholPercentage}.`);
+console.log(duvel.color);
+console.log(duvel.getInfo());
+
+ 
