@@ -14,54 +14,53 @@ USE TYPEHINTING EVERYWHERE!
 */
 
 class Beverage{
-    // Utiliser _ pour déclarer des propriétés privées
+    // Utiliser # pour déclarer des propriétés privées
     
-    _color;
-    _price;
-    _temperature;
+    #color;
+    #price;
+    #temperature;
     
     constructor(color = "", price = 0.0, temperature = "cold"){
-     this._color = color;
-     this._price = price;
-     this._temperature = temperature;
+     this.#color = color;
+     this##price = price;
+     this.#temperature = temperature;
     }
 
  
  getInfo() {
  
-     return `This beverage is ${this._temperature} and ${this._color}.`;
+     return `This beverage is ${this.#temperature} and ${this.#color}.`;
      
     }
  }
  
 class Beer extends Beverage{
-    // Utiliser _ pour déclarer des propriétés privées
-    _name;
-    _alcoholPercentage;
-    _color;
+    // Utiliser # pour déclarer des propriétés privées
+    #name;
+    #alcoholPercentage;
+    #color;
     constructor(name ="", alcoholPercentage = 0.0, color, price, temperature,){
     super(color, price, temperature);
-    this._name = name;
-    this._alcoholPercentage = alcoholPercentage;
+    this.#name = name;
+    this.#alcoholPercentage = alcoholPercentage;
     
     }
 
     getAlcoholPercentage(){
-        return `The percentage of de alcool is: ${this._alcoholPercentage}.`;
-    }
-
+        return `The percentage of de alcool is: ${this.#alcoholPercentage}.`;
+    }#
     // a new private method in the Beer
-    _beerInfo(){
-    return `Hi i'm Duvel and have an alcochol percentage of ${this._alcoholPercentage} and I have a ${this._color} color.`
+    #beerInfo(){
+    return `Hi i'm Duvel and have an alcochol percentage of ${this.#alcoholPercentage} and I have a ${this.#color} color.`
     }
 
     // Utiliser une méthode publique pour accéder à la méthode privée
     getBeerInfo() {
-        return this._beerInfo();
+        return this.#beerInfo();
     }
 
     setColor(color){
-        this._color = color;
+        this.#color = color;
     }
 }
 
@@ -71,15 +70,15 @@ class Beer extends Beverage{
 console.log(duvel.getAlcoholPercentage());
 
 // Imprimer en accédant à la propriété alcoholPercentage manuellement
-console.log(`The percentage of alcool is: ${duvel._alcoholPercentage}.`);
+console.log(`The percentage of alcool is: ${duvel.#alcoholPercentage}.`);
 
-// Utiliser _ pour accéder à une propriété privée
-console.log(duvel._color);
+// Utiliser # pour accéder à une propriété privée
+console.log(duvel.#color);
 console.log(duvel.getInfo());
 
 // Change the color of Duvel to light
 duvel.setColor("light");
-console.log(duvel._color);
+console.log(duvel.#color);
 
 console.log(duvel.getBeerInfo());
 
